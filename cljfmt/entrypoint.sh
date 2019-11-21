@@ -11,17 +11,12 @@ cljfmt() {
 
 fix() {
   lein cljfmt fix
+  git checkout -- project.clj
 }
 
 lint() {
 	lein cljfmt check
 }
 
-echo $(pwd)
-echo "trying to rewrite project.clj"
-cat project.clj
 clojure -Sdeps '{:deps {rewrite-clj {:mvn/version "0.6.1"}}}' /rewrite_projectclj.clj
-echo "was it rewritten?"
-cat project.clj
-git checkout -- project.clj
 _lint_and_fix_action cljfmt "${@}"
