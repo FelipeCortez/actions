@@ -1,4 +1,4 @@
-(ns fmt
+(ns rewrite-projectclj
   (:require [rewrite-clj.zip :as z]))
 
 (defn only-plugins-and-cljfmt
@@ -10,8 +10,7 @@
      :cljfmt     cljfmt
      :test-paths test-paths)))
 
-(defn -main [& args]
-  (-> (z/of-file "/project.clj")
-      (z/edit only-plugins-and-cljfmt)
-      z/root-string
-      ((partial spit "/project.clj"))))
+(-> (z/of-file "/github/workspace/project.clj")
+    (z/edit only-plugins-and-cljfmt)
+    z/root-string
+    ((partial spit "/github/workspace/project.clj")))

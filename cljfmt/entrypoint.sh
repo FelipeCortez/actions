@@ -17,6 +17,7 @@ lint() {
 	lein cljfmt check
 }
 
-clojure -Sdeps '{:deps {rewrite-clj {:mvn/version "0.6.1"}}}' -m fmt
+echo $(pwd)
+clojure -Sdeps '{:deps {rewrite-clj {:mvn/version "0.6.1"}}}' /rewrite_projectclj.clj
 git checkout -- project.clj
 _lint_and_fix_action cljfmt "${@}"

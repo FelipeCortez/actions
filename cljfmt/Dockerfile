@@ -24,5 +24,5 @@ RUN wget https://download.clojure.org/install/linux-install-$CLOJURE_VERSION.sh 
 
 COPY lib.sh /lib.sh
 COPY entrypoint.sh /entrypoint.sh
-COPY fmt.clj /src/fmt.clj
+COPY rewrite_projectclj.clj /rewrite_projectclj.clj
 ENTRYPOINT ["/entrypoint.sh"]
