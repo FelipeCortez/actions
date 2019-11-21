@@ -18,6 +18,5 @@ lint() {
 }
 
 clojure -Sdeps '{:deps {rewrite-clj {:mvn/version "0.6.1"}}}' -m fmt
-cd /app
 git checkout -- project.clj
 _lint_and_fix_action cljfmt "${@}"
